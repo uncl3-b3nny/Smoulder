@@ -10,8 +10,21 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap
- *= require bootstrap-theme
+
+ *= require bootstrap.min
+ *= require bootstrap-theme.min
+ *= require full-calendar/jquery-ui.min
+ *= require full-calendar/fullcalendar.min
+ *= require full-calendar/fullcalendar.print
+ 
+ *= require font-awesome/font-awesome.min
+ *= require owl-carousel/owl.carousel
+ *= require owl-carousel/owl.theme
+ *= require owl-carousel/owl.transitions
+ *= require fonts/stylesheet
+ *= require wow/animate
+ *= require styles
+ *= require custom
  *= require_tree .
  *= require_self
  */

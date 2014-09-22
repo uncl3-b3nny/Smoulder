@@ -1,0 +1,48 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @event.title
+%p
+  %b Allday:
+  = @event.allDay
+%p
+  %b Start:
+  = @event.start
+%p
+  %b End:
+  = @event.end
+%p
+  %b Url:
+  = @event.url
+%p
+  %b Classname:
+  = @event.className
+%p
+  %b Editable:
+  = @event.editable
+%p
+  %b Starteditable:
+  = @event.startEditable
+%p
+  %b Endeditable:
+  = @event.endEditable
+%p
+  %b Durationeditable:
+  = @event.durationEditable
+%p
+  %b Color:
+  = @event.color
+%p
+  %b Backgroundcolor:
+  = @event.backgroundColor
+%p
+  %b Bordercolor:
+  = @event.borderColor
+%p
+  %b Textcolor:
+  = @event.textColor
+
+= link_to 'Edit', edit_event_path(@event)
+\|
+= link_to 'Back', events_path

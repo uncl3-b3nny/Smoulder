@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515183500) do
+ActiveRecord::Schema.define(version: 20140922152154) do
+
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.boolean  "allDay"
+    t.string   "start"
+    t.string   "end"
+    t.string   "url"
+    t.string   "className"
+    t.boolean  "editable"
+    t.boolean  "startEditable"
+    t.boolean  "endEditable"
+    t.boolean  "durationEditable"
+    t.string   "color"
+    t.string   "backgroundColor"
+    t.string   "borderColor"
+    t.string   "textColor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mailer_contents", force: true do |t|
+    t.string   "category"
+    t.string   "subcategory"
+    t.text     "actual_context"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -19,6 +46,11 @@ ActiveRecord::Schema.define(version: 20140515183500) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.date     "anniversary"
+    t.date     "spouse_birthday"
+    t.date     "first_kiss"
+    t.date     "first_date"
+    t.date     "day_you_proposed"
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -28,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140515183500) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

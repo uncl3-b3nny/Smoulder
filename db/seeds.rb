@@ -5,3 +5,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+# fake_users = 
+  10.times do 
+    password = Faker::Internet.password(8)
+    User.create([{email: Faker::Internet.email, password: password, password_confirmation: password, anniversary: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), spouse_birthday: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), first_kiss: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), first_date: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), day_you_proposed:(Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date)}])
+  end
+fake_mailer_content = 
+  20.times do
+    MailerContent.create(
+      [
+        {category: 'Quality Time', subcategory: 'memories', actual_context: 'remember that really romantic evening we had...'},
+        {category: 'Quality Time', subcategory: 'schedule', actual_context: 'this is a suggestion for a fun date!'},
+        {category: 'Words of affirmation', subcategory: 'poetry', actual_context: 'This is where we would suggest some poetry!'},
+        {category: 'Words of affirmation', subcategory: 'inspiration', actual_context: Faker::Company.bs},
+        {category: 'Tangible Gifts', subcategory: Faker::Commerce.department(1, true), actual_context: Faker::Commerce.product_name + ": $" + ((Faker::Commerce.price).to_s)},
+        {category: 'Acts of Service', subcategory: 'Domestic', actual_context: 'Fix the ' + Faker::Hacker.noun},
+        {category: 'Physical Touch', subcategory: 'Reminder', actual_context: 'Give your wife a hug today!'}, 
+        {category: 'Physical Touch', subcategory: 'Ideas', actual_context: 'Holding hands is simple way to remind her you love her!'}])
+  end
+
+#maybe just a write a script to scrape poetry foundation?

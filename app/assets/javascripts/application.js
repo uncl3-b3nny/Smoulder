@@ -12,6 +12,25 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+
+//= require full-calendar/fullcalendar.min
+//= require full-calendar/gcal
+//= require full-calendar/lang-all
+//= require full-calendar/lib/jquery-ui.custom.min
+//= require full-calendar/lib/jquery.min
+//= require full-calendar/lib/moment.min
+//= require full-calendar/lang/en-au
+//= require full-calendar/lang/en-ca
+//= require full-calendar/lang/en-gb
+
+//= require bootstrap.min
 //= require turbolinks
+//= require jquery.easing.1.3
+//= require jquery.backstretch.min
+
+//= require owl-carousel/owl.carousel.min
+//= require wow/wow.min
+//= require detectmobilebrowser
+//= require functions.min
+//= require initialise-functions
 //= require_tree .
