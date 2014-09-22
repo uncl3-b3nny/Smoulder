@@ -12,13 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require full-calendar/moment.js
+//= require full-calendar/lib/jquery.min
+//= require full-calendar/lib/moment.min
 //= require full-calendar/fullcalendar.min
 //= require full-calendar/gcal
 //= require full-calendar/lang-all
 //= require full-calendar/lib/jquery-ui.custom.min
-//= require full-calendar/lib/jquery.min
-//= require full-calendar/lib/moment.min
+
 //= require full-calendar/lang/en-au
 //= require full-calendar/lang/en-ca
 //= require full-calendar/lang/en-gb
