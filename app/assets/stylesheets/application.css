@@ -13,7 +13,7 @@
 
  *= require bootstrap.min
  *= require bootstrap-theme.min
- *= require full-calendar/jquery-ui.min
+ *= require jquery-ui
  *= require full-calendar/fullcalendar.min
  *= require full-calendar/fullcalendar.print
  

@@ -55,7 +55,7 @@
           <%= alert %>
         </p>
       <% end %>
+      <br>
+      <br>
+      <br>
       <%= yield %>
-    </div>
-  </body>
-</html>

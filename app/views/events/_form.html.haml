@@ -10,9 +10,6 @@
     = f.label :title
     = f.text_field :title
   .field
-    = f.label :allDay
-    = f.check_box :allDay
-  .field
     = f.label :start
     = f.text_field :start
   .field
@@ -48,5 +45,8 @@
   .field
     = f.label :textColor
     = f.text_field :textColor
+  .field
+    = f.label :event_type
+    = f.text_field :event_type
   .actions
     = f.submit 'Save'

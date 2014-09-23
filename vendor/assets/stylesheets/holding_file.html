@@ -123,47 +123,9 @@
                         </div>
                       </div>
                     </div><!-- #modal-content-6 -->
-                    
-                    <!-- Click to add event to calendar -->
-                      <a href= "" onclick="populate_and_open_modal(event, 'new_event_modal');" class="btn btn-primary btn-lg" role="button">Do it</a>
-                      
-                    <div class="content-to-populate-in-modal" id="new_event_modal">
-                      <%= form_for @event do |f| %>
-                        <% if @event.errors.any? %>
-                          <div id="error_explanation">
-                            <h2>
-                              <%= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:" %>
-                            </h2>
-                            <ul>
-                              <% @event.errors.full_messages.each do |msg| %>
-                                <li>
-                                  <%= msg %>
-                                </li>
-                              <% end %>
-                            </ul>
-                          </div>
-                        <% end %>
-                        <div class="field">
-                          <%= f.label :title %>
-                          <%= f.text_field :title %>
-                        </div>
-                        <div class="field">
-                          <%= f.label :start %>
-                          <%= f.text_field :start %>
-                        </div>
-                        <div class="field">
-                          <%= f.label :end %>
-                          <%= f.text_field :end %>
-                        </div>
-                        <div class="field">
-                          <%= f.label :event_type %>
-                          <%= f.text_field :event_type %>
-                        </div>
-                        <div class="actions">
-                          <%= f.submit 'Save' %>
-                        </div>
-                      <% end %>
-                    </div><!-- #new_event_modal -->
+                      <%= link_to "Do it", new_event_path, class: "btn btn-primary btn-lg" %>
+                      <!-- <a class="btn btn-primary btn-lg" 
+                      href= <% new_event_path %> role="button">Do it</a> -->
                   </article>
 
                   <!-- feature 2 -->
@@ -405,7 +367,7 @@
 
                 <section class="calendar row clearfix clearfix-for-1cols">
 <!-- Should i perform the calendar equations in a helper? in my concern? -->
-                  <div class="calendar-item col-lg-10">
+                  <div class="calendar-item col-md-6">
                     <div class="item-content clearfix">
                     
                       <div id='calendar'>
@@ -467,6 +429,14 @@
 
           </div><!-- .content-wrapper -->
         </article><!-- .section-wrapper -->
+
+        <article id="Suggestions" class="section-wrapper clearfix" data-custom-background-img="/assets/other_images/bg1.jpg">
+          <div class="content-wrapper clearfix wow fadeInDown" data-wow-delay="0.3s">
+            <div class="col-sm-10 col-md-9 pull-right">
+              <section class="feature-text">
+                <h1 class="section-title">Pick 1!</h1>
+                <p>We're happy to choose specifics for you, but if you want a little more control, just click it, and you'll be able to customize your choices from there! (make this a "How it works" dropdown(class of hidden))</p>
+              </section>
 
       </section><!-- #main-content -->
 
