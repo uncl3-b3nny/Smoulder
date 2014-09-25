@@ -1,5 +1,7 @@
 == README
 
+This application is designed to help you do nice things for people you care about by leveraging the mountains of data that companies like google have collected from your loved ones. Essentially, it takes the effort out of being thoughtful.
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

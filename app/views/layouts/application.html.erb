@@ -73,6 +73,65 @@
 
       <section id="main-content" class="clearfix">
 
+        <article id="grid" class="section-wrapper clearfix" data-custom-background-img="/assets/other_images/bg2.jpg">
+          <div class="content-wrapper clearfix">
+            <div class="col-sm-11 col-md-10 pull-right">
+
+                <h1 class="section-title">Grid</h1>
+                
+                <!-- grid -->
+                <section class="grid row clearfix clearfix-for-2cols">
+
+                  <!-- grid item -->
+                  <div class="grid-item col-md-6">
+                    <div class="item-content clearfix">
+                      <span class="icon glyphicon glyphicon-stats"></span>
+                      <div class="text-content">
+                        <h5>Lorem ipsum dolor sit amet</h5>
+                        <p>Nullam ac rhoncus sapien, non gravida purus. Aliquam adipiscing eros non elit imperdiet congue. Integer ultricies.</p>
+                      </div>
+                    </div><!-- end: .item-content -->
+                  </div><!-- end: .grid-item -->
+
+                  <!-- grid item -->
+                  <div class="grid-item col-md-6">
+                    <div class="item-content clearfix">
+                      <span class="icon glyphicon glyphicon-record"></span>
+                      <div class="text-content">
+                        <h5>Aliquam adipiscing eros non elit</h5>
+                        <p>Nullam ac rhoncus sapien, non gravida purus. Alinon elit imperdiet congue. Integer ultricies sed ligula eget tempus.</p>
+                      </div>
+                    </div><!-- end: .item-content -->
+                  </div><!-- end: .grid-item -->
+
+                  <!-- grid item -->
+                  <div class="grid-item col-md-6">
+                    <div class="item-content clearfix">
+                      <span class="icon glyphicon glyphicon-lock"></span>
+                      <div class="text-content">
+                        <h5>Integer ultricies sed ligula</h5>
+                        <p>Aliquam adipiscing eros non elit imperdiet congue. Integer ultricies sed ligula ligula eget.</p>
+                      </div>
+                    </div><!-- end: .item-content -->
+                  </div><!-- end: .grid-item -->
+
+                  <!-- grid item -->
+                   <div class="grid-item col-md-6">
+                    <div class="item-content clearfix">
+                      <span class="icon glyphicon glyphicon-file"></span>
+                      <div class="text-content">
+                        <h5>Lorem ipsum dolor sit amet</h5>
+                        <p>Nullam ac rhoncus. Aliquam adipiscing eros non elit imperdiet congue. Integer ultricies sed ligula eget tempus.</p>
+                      </div> 
+                    </div> <!-- end: .item-content -->
+                  </div> <!-- end: .grid-item -->
+
+                </section> <!-- end: grid -->
+
+            </div> <!-- .col-sm-11 -->
+          </div> <!-- .content-wrapper -->
+        </article> <!-- .section-wrapper -->
+
 <!-- Smolder Suggestions -->
 
         <article id="Suggestions" class="section-wrapper clearfix" data-custom-background-img="/assets/other_images/bg1.jpg">
@@ -128,7 +187,7 @@
                       <a href= "" onclick="populate_and_open_modal(event, 'new_event_modal');" class="btn btn-primary btn-lg" role="button">Do it</a>
                       
                     <div class="content-to-populate-in-modal" id="new_event_modal">
-                      <%= form_for @event do |f| %>
+                      <%= form_for @event, remote: true do |f| %>
                         <% if @event.errors.any? %>
                           <div id="error_explanation">
                             <h2>
@@ -163,6 +222,7 @@
                           <%= f.submit 'Save' %>
                         </div>
                       <% end %>
+
                     </div><!-- #new_event_modal -->
                   </article>
 
@@ -245,7 +305,7 @@
                   <div class="item active">
                     <div class="carousel-text-content">
                       <img src="/assets/other_images/olive-mountain.png" class="icon" alt="Lorem Ipsum">
-                      <h2 class="title">Hiking at Riverwood Park</h2>
+                      <h2 class="title">Went Hiking at Riverwood Park</h2>
                       <p>event.Date_Clicked:
                         <br>
                         event.Date_Completed:
@@ -373,13 +433,8 @@
                       <P><center>Your Spouse's birthday</center></P>
                      
                         <input type="date" class="date-field form-control validate-field date" data-validation-type="date" id="form-spouse_birthday" placeholder="dd/mm/yy" name="spouse_birthday">
-                         
-                      <P><center>First date</center></P>
-                     
-                        <input type="date" class="date-field form-control validate-field date" data-validation-type="date" id="form-first_date" placeholder="dd/mm/yy" name="first_date">
-                        
-                     
-                        <P><center>Add another important date</center></P>
+
+                      <P><center>Add another important date</center></P>
                         <input type="text" class="text-field form-control validate-field required" data-validation-type="string" id="form-memory_1_name" placeholder="Give the memory a name here. For example: 'Picnic at the Park'" name="memory_1_name">
                         <input type="date" class="date-field form-control validate-field date" data-validation-type="date" id="form-memory_1_date" placeholder="dd/mm/yy" name="memory_1_date">
                         <textarea placeholder="Fill in some text you would like her to see when she is reminded of this memory here." class="form-control validate-field required" name="memory_1_notes"></textarea>
@@ -404,13 +459,12 @@
                 <h1 class="section-title">Calendar</h1>
 
                 <section class="calendar row clearfix clearfix-for-1cols">
-<!-- Should i perform the calendar equations in a helper? in my concern? -->
-                  <div class="calendar-item col-lg-10">
+                  <div class="calendar-item col-lg-10 col-lg-offset-1">
                     <div class="item-content clearfix">
-                    
+                    <div class = "my_calender">
                       <div id='calendar'>
                       </div>
-
+                    </div>
                     </div><!-- end: .item-content -->
                   </div><!-- end: .calendar-item -->
 

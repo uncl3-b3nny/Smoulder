@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  respond_to :json, :html
   # GET /events
   # GET /events.json
   def index
