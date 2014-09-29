@@ -741,17 +741,20 @@ h6 {
 
 #main-content .btn-lg {
    font-size:0.9em;
-   padding:13px 30px; 
+   padding:13px 30px;
+   border-radius: 5px; 
 }
 
 #main-content .btn-sm {
    font-size:0.73em;
    padding:10px 26px; 
+   border-radius: 5px;
 }
 
 #main-content .btn-xs {
    font-size:0.65em;
    padding:6px 18px; 
+   border-radius: 5px;
 }
 
     @media (min-width: 768px) {
@@ -1037,6 +1040,7 @@ h6 {
     text-decoration: none;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
+    border-radius: 5px;
 }
 #main-content .feature-columns .feature-col .thumbnail:hover {
     background-color: transparent;
@@ -1045,6 +1049,7 @@ h6 {
     border: 1px solid rgba(255,255,255,0.1);
     color:#000;
     text-decoration: none;
+    border-radius: 5px;
 }
 
 #main-content .feature-columns .feature-col .thumbnail * {
@@ -1053,10 +1058,12 @@ h6 {
     outline: none;
     -webkit-transition: color 0.4s;
     transition: color 0.4s;
+    border-radius: 5px;
 }
 #main-content .feature-columns .feature-col .thumbnail:hover * {
     color:#000;
     text-shadow:none;
+    border-radius: 5px;
 }
 
 #main-content .feature-columns .feature-col .thumbnail .image-container {
@@ -1067,6 +1074,7 @@ h6 {
     margin-left: auto;
     position: relative;
     overflow: hidden;
+    border-radius: 5px;
 }
 
 #main-content .feature-columns .feature-col a.thumbnail .image-container:after,
@@ -1084,10 +1092,12 @@ h6 {
     filter: alpha(opacity=0);
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
+    border-radius: 5px;
 }
 #main-content .feature-columns .feature-col a.thumbnail:hover .image-container:after,
 #main-content .feature-columns .feature-col .linked:hover .image-container:after {
     opacity: 1;
+    border-radius: 5px;
     filter: alpha(opacity=100);
 }
 
@@ -1171,11 +1181,12 @@ h6 {
 #main-content .form-style textarea {
     background:rgba(0,0,0,0.15);
     border-color:#fff;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;  
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;  
     color:#fff;
     height:34px;
+    text-align: center;
     -webkit-box-shadow: none;
     -moz-box-shadow:    none;
     box-shadow:         none; 
@@ -1189,12 +1200,12 @@ h6 {
 #main-content .form-style input.text-field:-ms-input-placeholder {
     color:#fff !important;
     font-weight: bold;
+    text-align: center;
 }
 
 #main-content .form-style input.text-field:focus,
 #main-content .form-style textarea:focus {
-    color:#000;
-    background:#fff;
+    color:#fff;
     border-color:#fff;
     -webkit-box-shadow: none;
     -moz-box-shadow:    none;

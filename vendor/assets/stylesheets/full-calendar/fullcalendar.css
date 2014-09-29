@@ -628,6 +628,8 @@ a.fc-more:hover {
 .fc-view > table { /* so dragged elements can be above the view's main element */
 	position: relative;
 	z-index: 1;
+		border-width:1px;
+	border-radius: 5px;
 }
 
 /* BasicView

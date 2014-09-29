@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @users = User.all
+    @user = User.new
     @event = Event.new
   end
 
@@ -28,6 +29,8 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    # <%= f.datetime_select :start, class: "date-field form-control validate-field date", data_validation_type: "date", placeholder: "dd/mm/yy" %>
+
     @event = Event.create event_params
 
       respond_to do |format|
@@ -70,6 +73,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :allDay, :start, :end, :url, :className, :editable, :startEditable, :endEditable, :durationEditable, :color, :backgroundColor, :borderColor, :textColor, :event_type)
+      params.require(:event).permit(:title, :date, :allDay, :start, :end, :url, :className, :editable, :startEditable, :endEditable, :durationEditable, :color, :backgroundColor, :borderColor, :textColor, :event_type)
     end
 end
