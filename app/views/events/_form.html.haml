@@ -4,49 +4,39 @@
       %h2= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
       %ul
         - @event.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :start
-    = f.text_field :start
-  .field
-    = f.label :end
-    = f.text_field :end
-  .field
-    = f.label :url
-    = f.text_field :url
-  .field
-    = f.label :className
-    = f.text_field :className
-  .field
-    = f.label :editable
-    = f.check_box :editable
-  .field
-    = f.label :startEditable
-    = f.check_box :startEditable
-  .field
-    = f.label :endEditable
-    = f.check_box :endEditable
-  .field
-    = f.label :durationEditable
-    = f.check_box :durationEditable
-  .field
-    = f.label :color
-    = f.text_field :color
-  .field
-    = f.label :backgroundColor
-    = f.text_field :backgroundColor
-  .field
-    = f.label :borderColor
-    = f.text_field :borderColor
-  .field
-    = f.label :textColor
-    = f.text_field :textColor
-  .field
-    = f.label :event_type
-    = f.text_field :event_type
-  .actions
-    = f.submit 'Save'
+          %li= msg 
+  / .field
+  /   = f.label :end
+  / /   = f.text_field :end
+  / .field
+  /   = f.label :url
+  /   = f.text_field :url
+  / .field
+  /   = f.label :className
+  /   = f.text_field :className
+  / .field
+  /   = f.label :editable
+  /   = f.check_box :editable
+  / .field
+  /   = f.label :startEditable
+  /   = f.check_box :startEditable
+  / .field
+  /   = f.label :endEditable
+  /   = f.check_box :endEditable
+  / .field
+  /   = f.label :durationEditable
+  /   = f.check_box :durationEditable
+  / .field
+  /   = f.label :color
+  /   = f.text_field :color
+  / .field
+  /   = f.label :backgroundColor
+  /   = f.text_field :backgroundColor
+  / .field
+  /   = f.label :borderColor
+  /   = f.text_field :borderColor
+  / .field
+  /   = f.label :textColor
+  /   = f.text_field :textColor
+  / .actions
+  /   = f.submit 'Save'

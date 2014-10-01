@@ -76,8 +76,7 @@
               <div class="col-sm-10 col-md-9 pull-right">
                 <section class="feature-text">
                   <h1 class="section-title">Pick 1!</h1>
-                  <p>Put a "How it works" dropdown here</p>
-                  <p> <%== Event.next_event.first.title %></p>
+                  <p> <%= Event.next_event.first.title %></p>
 
                 </section>
 
@@ -131,13 +130,13 @@
                         <img data-img-src="/assets/other_images/project-2.jpg" class="lazy item-thumbnail" alt="Lorem Ipsum">
                       </div>
                       <div class="caption">
-                        <h5>Send a letter</h5>
+                        <h5>Send a note!</h5>
                       </div><!-- .caption -->
                     </a><!-- .thumbnail -->
 
                     <div class="content-to-populate-in-modal" id="modal-content-7">
                       <img data-img-src="/assets/other_images/top-image2.jpg" class="lazy full-width" alt="Lorem Ipsum">
-                      <h1>Send a letter</h1>
+                      <h1>Send a Note!</h1>
                       <p>Use the font you saved to your profile to send words of affirmation in your own handwriting</p>
                       <p>Send an email</p>
                       <p>Send a poem</p>
@@ -204,11 +203,11 @@
                     <div class="carousel-text-content">
                       <img src="/assets/other_images/olive-mountain.png" class="icon" alt="Lorem Ipsum">
                       <h2 class="title">Went Hiking at Riverwood Park</h2>
-                      <p>event.Date_Clicked:
+                      <p><%= @events[2].title %>
                         <br>
-                        event.Date_Completed:
+                        <%= @events[2].start %>
                         <br>
-                        event.other_relevant_data</p>
+                        <%= @events[2].event_type %></p>
                         <br>
                         <a href="#">Full History</a>
                         <p>
@@ -218,11 +217,11 @@
                           <div class="content-to-populate-in-modal" id="modal-content-2">
                             <h1>Hiking at Riverwood Park</h1>
                             <p><img data-img-src="/assets/other_images/olive-mountain.png" class="lazy rounded_border hover_effect pull-left" alt="Lorem Ipsum">     
-                              <p>event.Date_Clicked:
+                              <p><%= @events[2].title %>
                                 <br>
-                                event.Date_Completed:
+                                <%= @events[2].start %>
                                 <br>
-                                event.other_relevant_data
+                                <%= @events[2].event_type %>
                                 <br>
                                 <a href="#">Full History</a>
                               </p>
@@ -234,11 +233,11 @@
                           <div class="carousel-text-content">
                             <img src="/assets/other_images/chapstick.png" class="icon" alt="A picture of the chapstick you bought">
                             <h2 class="title">Bought her chapstick</h2>
-                            <p>event.Date_Clicked:
+                            <p><%= @events[1].title %>
                               <br>
-                              event.Date_Completed:
+                              <%= @events[1].start %>
                               <br>
-                              event.other_relevant_data</p>
+                              <%= @events[1].event_type %></p>
                               <br>
                               <a href="#">Full History</a>
                               <p>
@@ -247,11 +246,11 @@
                                 <div class="content-to-populate-in-modal" id="modal-content-3">
                                   <h1>Bought her chapstick</h1>
                                   <p><img data-img-src="/assets/other_images/chapstick.png" class="lazy rounded_border hover_effect pull-left" alt="A picture of the chapstick you bought">
-                                    <p>event.Date_Clicked:
+                                    <p><%= @events[1].title %>
                                       <br>
-                                      event.Date_Completed:
+                                      <%= @events[1].start %>
                                       <br>
-                                      event.other_relevant_data</p>
+                                      <%= @events[1].event_type %></p>
                                       <br>
                                       <a href="#">Full History</a>
                                       <p>
@@ -263,11 +262,11 @@
                                     <div class="carousel-text-content">
                                       <img src="/assets/other_images/Poetry.png" class="icon" alt="Peotry">
                                       <h2 class="title">Sent Poetry</h2>
-                                      <p>event.Date_Clicked:
+                                      <p><%= @events[0].title %>
                                         <br>
-                                        event.Date_Completed:
+                                        <%= @events[0].start %>
                                         <br>
-                                        event.other_relevant_data</p>
+                                        <%= @events[0].event_type %></p>
                                         <br>
                                         <a href="#">Full History</a>
                                         <p>
@@ -276,11 +275,11 @@
                                           <div class="content-to-populate-in-modal" id="modal-content-4">
                                             <h1>Sent Poetry</h1>
                                             <p><img data-img-src="/assets/other_images/Poetry.png" class="lazy rounded_border hover_effect pull-left" alt="Lorem Ipsum">       
-                                              <p>event.Date_Clicked:
+                                              <p><%= @events[0].title %>
                                                 <br>
-                                                event.Date_Completed:
+                                                <%= @events[0].start %>
                                                 <br>
-                                                event.other_relevant_data</p>
+                                                <%= @events[0].event_type %></p>
                                                 <br>
                                                 <a href="#">Full History</a>
                                                 <p>
@@ -306,7 +305,7 @@
                                         <p>The more information you provide us here, the more powerful our tools become, and the more impact your actions will have in your daily life.</p> 
                                       </section></center>
 
-                                        <!-- Profile html FORM -->
+                                        <!-- Profile FORM -->
                                         <section>
                                          <%= form_for @event, remote: true, :html => {class: "form-style validate-form clearfix"} do |f|  %>
 
@@ -318,7 +317,13 @@
 
                                               <P><center><strong>Important Dates</strong></center></P>
                                               <P><center>Anniversary</center></P>
-                                              
+
+                                              <!-- nested events form -->
+
+                                                <%= f.fields_for :events do |local_variable| %>
+                                                  <%= render 'form', f: local_variable %>
+                                                <% end %>
+
                                               <%= f.date_field :date, class: "date-field form-control validate-field date", data_validation_type: "date", placeholder: "dd/mm/yy" %>
                                               
                                               <P><center>Your Spouse's birthday</center></P>

@@ -6,6 +6,20 @@ $(document).ready(function() {
        events: '/events.json'
   })
 
+//   // live events
+//   $(document).on('click', '.bro', function() {
+//     $(this).css("background-color", "red")
+//   })
+
+//   $('.bro').click(function() {
+//     $(this).css("background-color", "red")
+//   })
+
+//   $(".add_bro").click(function() {
+//     var newName = $(".bro_name").val();
+//     $(".bros").append("<h1 class='bro'>" + newName + "</h1>");
+//   })
+
   // $(document).on("click", '.create_event',function() {
   //   console.log("hello world")
   //   $.ajax({
