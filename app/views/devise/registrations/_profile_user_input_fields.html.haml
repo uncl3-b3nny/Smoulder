@@ -1,0 +1,17 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = devise_error_messages!
+  
+  %fieldset
+    = f.label :spouse_amazon_id, "Amazon Wishlist ID"
+    %br
+    = f.text_field :spouse_amazon_id 
+    / Jen's id = A2GUXYNJMMIVQZ
+    %br
+    / nested events form 
+    = f.fields_for :events do |local_variable|
+      = render 'profile_events_fields', f: local_variable
+    %br
+
+  %center
+  %div
+    = f.submit 'Add to calendar', class: "btn btn-primary btn-md"

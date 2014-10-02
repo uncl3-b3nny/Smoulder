@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926202200) do
+ActiveRecord::Schema.define(version: 20141001180806) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140926202200) do
     t.datetime "updated_at"
     t.string   "event_type"
     t.string   "date"
+    t.integer  "user_id"
   end
 
   create_table "mailer_contents", force: true do |t|

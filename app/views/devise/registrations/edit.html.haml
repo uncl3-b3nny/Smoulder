@@ -2,17 +2,13 @@
 /   Edit #{resource_name.to_s.humanize}
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
-    .field
-    = f.label :title, "Anniversary" 
-    %br
-    = f.text_field :title
-  .field
-    = f.label :start, "Date and time"
-    = f.datetime_select :start
   .field
     = f.label :spouse_amazon_id, "Amazon Wishlist ID"
     %br
     = f.text_field :spouse_amazon_id 
+    / Jen's id = A2GUXYNJMMIVQZ
+
+    / make a pop-down link for all the account setting below
 /   %div
 /     = f.label :email
 /     %br/
