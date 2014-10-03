@@ -42,6 +42,9 @@
                       <div class="caption">
                         <h5>Schedule a hike!</h5>
                       </div><!-- .caption -->
+                      <div class = "caption"> 
+                            <center><%= link_to 'Do it', 'javascript:void(0);', some_random_path: events_path, event_title: Event.next_event.first.title, class: "create_event btn btn-primary btn-md" %></center>
+                      </div>
                     </a><!-- .thumbnail -->
 
                     <div class="content-to-populate-in-modal" id="modal-content-6">
@@ -82,6 +85,9 @@
                       <div class="caption">
                         <h5>Send a note!</h5>
                       </div><!-- .caption -->
+                      <div class = "caption"> 
+                            <center><%= link_to 'Do it', 'javascript:void(0);', class: "create_event", some_random_path: events_path, event_title: Event.next_event.first.title, remote: :true, class: "btn btn-primary btn-md" %></center>
+                      </div>
                     </a><!-- .thumbnail -->
 
                     <div class="content-to-populate-in-modal" id="modal-content-7">
@@ -122,6 +128,7 @@
                       </div>
                     </div><!-- #modal-content-8 -->
                   </article>
+                  
 
                 </section><!-- end: .feature-columns -->
 

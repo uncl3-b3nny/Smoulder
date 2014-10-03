@@ -5,7 +5,17 @@ $(document).ready(function() {
       // put your options and callbacks here
        events: '/events.json'
   })
-
+  $(document).on("click", '.create_event',function() {
+    console.log("its working!!!")
+    console.log($(this).attr("some_random_path"))
+    $.ajax({
+      url: $(this).attr("some_random_path"),
+      type: 'POST',
+      dataType: 'script',
+      data: {event: {title: $(this).attr('event_title')} }
+    })
+  });
+  });
 //   // live events
 //   $(document).on('click', '.bro', function() {
 //     $(this).css("background-color", "red")
@@ -47,4 +57,3 @@ $(document).ready(function() {
 
 // <%= link_to "ajax_button", 'javascript:void(0);', class: 'some_identifier', ajax_string: "ajax_button" %>
 //                       <div class="col-xs-6 events_show_frame"></div>
-});

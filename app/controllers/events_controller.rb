@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy] 
   respond_to :json, :html
   # GET /events
   # GET /events.json
@@ -31,14 +31,25 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     # <%= f.datetime_select :start, class: "date-field form-control validate-field date", data_validation_type: "date", placeholder: "dd/mm/yy" %>
-
-    @event = Event.create event_params
-
+    @holiday = Event.next_event
+    @new_event = Event.create params[:title, :start]
       respond_to do |format|
       format.html { redirect_to events_path }
       format.js { render json: @event.as_json }
       end
 
+    @event = Event.create event_params
+      respond_to do |format|
+      format.html { redirect_to events_path }
+      format.js { render json: @event.as_json }
+      end
+      if @car.save
+        flash[:notice] = "Event was successfully saved"
+        format.html { redirect_to dealership_path(@dealership) }
+      else
+        flash[:error] = "Event was not successfully saved"
+        format.html { render :new }
+      end
     # redirect_to events_path
   end
 

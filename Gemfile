@@ -61,3 +61,4 @@ group :test do
 end
 
 gem 'jquery-ui-rails'
+gem "nested_form"
