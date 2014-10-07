@@ -21,132 +21,15 @@
 <!-- end: Left Sidebar -->
 
 <section id="main-content" class="clearfix">
-  <article id="Suggestions" class="section-wrapper clearfix" data-custom-background-img="/assets/other_images/bg5.jpg">
-    <div class="content-wrapper clearfix wow fadeInDown" data-wow-delay="0.3s">
-      <div class="col-sm-10 col-md-9 pull-right">
-        <section class="feature-text">
-          <h1 class="section-title">Pick 1!</h1>
-          <p> <%= Event.next_event.first.title %></p>
+  
 
-        </section>
-
-        <!-- feature columns -->
-        <section class="feature-columns row clearfix">
-
-          <!-- feature 1 -->
-          <article class="feature-col col-md-4">
-            <a href="" onclick="populate_and_open_modal(event, 'modal-content-6');" class="thumbnail linked">
-              <div class="image-container">
-                <img data-img-src="/assets/other_images/project-3.jpg" class="lazy item-thumbnail" alt="Lorem Ipsum">
-              </div>
-              <div class="caption">
-                <h5>Schedule a hike!</h5>
-              </div><!-- .caption -->
-                <center>
-                  <%= link_to 'Do it', 'javascript:void(0);', some_random_path: event_path(Event.next_event.first), event_title: Event.next_event.first.title, start: Event.next_event.first.start, event_type: Event.next_event.first.event_type, user_id: current_user.id, remote: :true, class: "create_event btn btn-primary btn-md" %>
-                </center>
-            </a><!-- .thumbnail -->
-
-            <div class="content-to-populate-in-modal" id="modal-content-6">
-              <h1>Nantahala National Forest</h1>
-              <p>Nantahala has so much to explore!<br/></p>
-
-              <!-- image slider inside popup -->
-              <div id="unique-id-for-image-slider" class="owl-carousel popup-image-gallery">
-                <!-- slide -->
-                <div>
-                  <!-- caption is optional. To remove it, remove the <h6> below -->
-                  <h6 class="caption">View the scenery</h6>
-                  <img class="lazyOwl" data-src="/assets/other_images/bg1.jpg">
-                </div>
-                <!-- slide -->
-                <div>
-                  <h6 class="caption">Paddle the lakes and rivers</h6>
-                  <img class="lazyOwl" data-src="/assets/other_images/bg2.jpg">
-                </div>
-                <!-- slide -->
-                <div>
-                  <h6 class="caption">Get your boots muddy</h6>
-                  <img class="lazyOwl" data-src="/assets/other_images/bg3.jpg">
-                </div>
-              </div>
-            </div><!-- #modal-content-6 -->
-
-            <!-- Smolder Suggestions -->
-
-          </article>
-
-          <!-- feature 2 -->
-          <article class="feature-col col-md-4">
-            <a href="" onclick="populate_and_open_modal(event, 'modal-content-7');" class="thumbnail linked">
-              <div class="image-container">
-                <img data-img-src="/assets/other_images/project-2.jpg" class="lazy item-thumbnail" alt="Lorem Ipsum">
-              </div>
-              <div class="caption">
-                <h5>Send a note!</h5>
-              
-                    
-              </div><!-- .caption --><center><%= link_to 'Do it', 'javascript:void(0);', some_random_path: events_path, event_title: Event.next_event.first.title, start: Event.next_event.first.start, event_type: Event.next_event.first.event_type, user_id: current_user.id, remote: :true, class: "create_event btn btn-primary btn-md" %></center>
-            </a><!-- .thumbnail -->
-
-            <div class="content-to-populate-in-modal" id="modal-content-7">
-              <img data-img-src="/assets/other_images/top-image2.jpg" class="lazy full-width" alt="Lorem Ipsum">
-              <h1>Send a Note!</h1>
-              <p>Use the font you saved to your profile to send words of affirmation in your own handwriting</p>
-              <p>Send an email</p>
-              <p>Send a poem</p>
-            </div><!-- #modal-content-7 -->
-          </article>
-
-          <!-- feature 3 -->
-          <article class="feature-col col-md-4">
-            <a href="" onclick="populate_and_open_modal(event, 'modal-content-8', '', 'full-size');" class="thumbnail linked">
-              <div class="image-container">
-                <img data-img-src="/assets/other_images/project-4.jpg" class="lazy item-thumbnail" alt="Lorem Ipsum">
-              </div>
-              <div class="caption">
-                <h5>More options</h5>
-              </div><!-- .caption -->
-            </a><!-- .thumbnail -->
-
-            <div class="content-to-populate-in-modal" id="modal-content-8">
-              <h1>Variety is the spice of life</h1>
-              <p>We're far from perfect. If you can't find something that looks like a good idea to you, PLEASE tell us. Our number one priority is meeting your needs, and the best way for us to make sure we're doing that is to communicate about it.(hint hint)</p>
-
-              <!-- alt image slider inside popup -->
-              <div id="unique-id-for-alt-image-slider" class="owl-carousel popup-alt-image-gallery">
-                <div class="item"><a href="/assets/other_images/bg1.jpg" data-lightbox="popup-alt-gallery"><img class="lazyOwl" data-src="/assets/other_images/gallery-thumb-1.jpg"></a></div>
-                <div class="item"><a href="/assets/other_images/bg2.jpg" data-lightbox="popup-alt-gallery"><img class="lazyOwl" data-src="/assets/other_images/gallery-thumb-2.jpg"></a></div>
-                <div class="item"><a href="/assets/other_images/bg3.jpg" data-lightbox="popup-alt-gallery"><img class="lazyOwl" data-src="/assets/other_images/gallery-thumb-3.jpg"></a></div>
-                <div class="item"><a href="/assets/other_images/bg4.jpg" data-lightbox="popup-alt-gallery"><img class="lazyOwl" data-src="/assets/other_images/gallery-thumb-4.jpg"></a></div>
-                <div class="item"><a href="/assets/other_images/bg4.jpg" data-lightbox="popup-alt-gallery"><img class="lazyOwl" data-src="/assets/other_images/gallery-thumb-5.jpg"></a></div>
-                <div class="item"><a href="/assets/other_images/bg6.jpg" data-lightbox="popup-alt-gallery"><img class="lazyOwl" data-src="/assets/other_images/gallery-thumb-6.jpg"></a></div>
-                <div class="item"><a href="/assets/other_images/bg2.jpg" data-lightbox="popup-alt-gallery"><img class="lazyOwl" data-src="/assets/other_images/gallery-thumb-2.jpg"></a></div>
-                <div class="item"><a href="/assets/other_images/bg3.jpg" data-lightbox="popup-alt-gallery"><img class="lazyOwl" data-src="/assets/other_images/gallery-thumb-3.jpg"></a></div>
-                include captions and make the pics link to moduls with more info. ALSO NEED a 1CLICK = Done button
-              </div>
-            </div><!-- #modal-content-8 -->
-          </article>
-          
-
-        </section><!-- end: .feature-columns -->
-
-        <!-- End: Section content to edit -->
-
-      </div><!-- .col-sm-10 -->
-    </div><!-- .content-wrapper -->
-  </article><!-- .section-wrapper -->
-
-
+  <%= render 'suggestion_frame_partial' %>
 
   <article id="carousel" class="section-wrapper clearfix" data-custom-background-img="/assets/other_images/bg6.jpg">
     <div class="content-wrapper clearfix">
       <div id="features-carousel" class="carousel slide with-title-indicators max-height" data-height-percent="70" data-ride="carousel"> 
               <!-- Wrapper for slides -->
         <div class="carousel-inner">
-
-<!--           How do I make this user specific? current_user.?
- -->
           <% Event.three_carousel_events(current_user.id).each do |x| %>
             <% if x == Event.three_carousel_events(current_user.id)[0] %>
               <div class="item active">

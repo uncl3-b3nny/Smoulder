@@ -5,24 +5,20 @@ $(document).ready(function() {
       // put your options and callbacks here
        events: '/events.json'
   })
-  $(document).on("click", '.create_event',function() {
+  $(document).on("click", '.update_event',function() {
     $("#menu-item-Calendar a").click()
     console.log("its working!!!")
-    console.log($(this).attr("some_random_path"))
+    console.log($(this).attr("suggestion_frame_partial"))
     $.ajax({
-      url: $(this).attr("some_random_path"),
+      url: $(this).attr("suggestion_frame_partial"),
       type: 'PATCH',
       dataType: 'script',
-      data: {event: {title: $(this).attr('event_title'), start: $(this).attr('start'), event_type: $(this).attr('event_type'), user_id: $(this).attr('user_id'), workflow_state: "done"} }
-      // success: function(data?) {
-      //   $(".after_they_clicked_ajax_button_page").html("What is this argument?" you had <img src='" + data.avatar_url + "'> in here which appears to give us a new picture)
-      //   // console.log(data); I need to run Event.next_event, then repaint my html.
-      // }
- // on success, can I just repaint the event with next future event? and do the same with the suggestion fields?   
+      data: {event: {title: $(this).attr('event_title'), start: $(this).attr('start'), event_type: $(this).attr('event_type'), user_id: $(this).attr('user_id'), workflow_state: "done"} } 
     })
-    $
+    
   });
   });
+
 //   // live events
 //   $(document).on('click', '.bro', function() {
 //     $(this).css("background-color", "red")
