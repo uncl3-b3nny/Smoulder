@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require full-calendar/moment.js
-//= require full-calendar/lib/jquery.min
 //= require full-calendar/lib/moment.min
 //= require full-calendar/fullcalendar.min
 //= require full-calendar/gcal

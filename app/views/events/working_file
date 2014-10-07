@@ -42,9 +42,9 @@
               <div class="caption">
                 <h5>Schedule a hike!</h5>
               </div><!-- .caption -->
-                <center>
-                  <%= link_to 'Do it', 'javascript:void(0);', some_random_path: event_path(Event.next_event.first), event_title: Event.next_event.first.title, start: Event.next_event.first.start, event_type: Event.next_event.first.event_type, user_id: current_user.id, remote: :true, class: "create_event btn btn-primary btn-md" %>
-                </center>
+              <div class = "caption"> 
+                    <center><%= link_to 'Do it', 'javascript:void(0);', some_random_path: events_path, event_title: Event.next_event.first.title, start: Event.next_event.first.start, event_type: Event.next_event.first.event_type, user_id: Event.next_event.first.user_id, class: "create_event btn btn-primary btn-md" %></center>
+              </div>
             </a><!-- .thumbnail -->
 
             <div class="content-to-populate-in-modal" id="modal-content-6">
@@ -84,9 +84,10 @@
               </div>
               <div class="caption">
                 <h5>Send a note!</h5>
-              
-                    
-              </div><!-- .caption --><center><%= link_to 'Do it', 'javascript:void(0);', some_random_path: events_path, event_title: Event.next_event.first.title, start: Event.next_event.first.start, event_type: Event.next_event.first.event_type, user_id: current_user.id, remote: :true, class: "create_event btn btn-primary btn-md" %></center>
+              </div><!-- .caption -->
+              <div class = "caption"> 
+                    <center><%= link_to 'Do it', 'javascript:void(0);', class: "create_event", some_random_path: events_path, event_title: Event.next_event.first.title, remote: :true, class: "btn btn-primary btn-md" %></center>
+              </div>
             </a><!-- .thumbnail -->
 
             <div class="content-to-populate-in-modal" id="modal-content-7">
@@ -137,57 +138,68 @@
     </div><!-- .content-wrapper -->
   </article><!-- .section-wrapper -->
 
-
+  <!-- Smolder History Carousel -->
 
   <article id="carousel" class="section-wrapper clearfix" data-custom-background-img="/assets/other_images/bg6.jpg">
     <div class="content-wrapper clearfix">
-      <div id="features-carousel" class="carousel slide with-title-indicators max-height" data-height-percent="70" data-ride="carousel"> 
-              <!-- Wrapper for slides -->
-        <div class="carousel-inner">
+      <section>
+<!-- Each loop, limit 5, for @events.length -->
+        <!-- Wrapper for slides -->
+        <% if current_user.events.length > 0 %>
+            <div id="features-carousel" class="carousel slide with-title-indicators max-height" data-height-percent="70" data-ride="carousel">
+              <div class="carousel-inner">
+                <% current_user.events.limit(3).each do |x| %>
+                  <div class="item active">
+                    <div class="carousel-text-content">
+                      <img src="/assets/other_images/olive-mountain.png" class="icon" alt="Lorem Ipsum">
+                      <h2 class="title">Went Hiking at Riverwood Park</h2>
+                      <p>
+                      <%= x.title %>
+                      <br>
+                      <%= x.start %>
+                      <br>
+                      <%= x.event_type %></p>
+                      <br>
+                      <a href="#">Full History</a>
+                      <p>
 
-<!--           How do I make this user specific? current_user.?
- -->
-          <% Event.three_carousel_events(current_user.id).each do |x| %>
-            <% if x == Event.three_carousel_events(current_user.id)[0] %>
-              <div class="item active">
-                <div class="carousel-text-content">
-                  <img src= <%= x.history_image_file_path%> class="icon" alt="Lorem Ipsum">
-                  <h2 class="title"><%= x.title %></h2>
-                  <p>
-                    <%= x.notes %>
-                    <br>
-                    <%= x.start %>
-                    <br>
-                    <%= x.event_type %>
-                  </p>
-                </div><!-- carousel-text-content --> 
-              </div><!-- .item -->
-            <% else %>      
-              <div class="item">
-                <div class="carousel-text-content">
-                  <img src= <%= x.history_image_file_path%> class="icon" alt="Lorem Ipsum">
-                  <h2 class="title"><%= x.title %></h2>
-                  <p>
-                    <%= x.notes %>
-                    <br>
-                    <%= x.start %>
-                    <br>
-                    <%= x.event_type %>
-                  </p>
-                </div><!-- carousel-text-content --> 
-              </div><!-- .item -->
-            <% end %>
-          <% end %>
+                      <a href="" onclick="populate_and_open_modal(event, 'modal-content-2');" class="btn btn-outline-inverse btn-sm">More Details</a></p>
 
-        </div> <!-- .carousel-inner -->
-        
-        <!-- Controls -->
-        <a class="left carousel-control" href="#features-carousel" data-slide="prev"></a>
-        <a class="right carousel-control" href="#features-carousel" data-slide="next"></a> 
-      
-      </div> <!-- #about-carousel -->
-    </div> <!-- .content-wrapper -->
-  </article> <!-- .section-wrapper -->
+                      <div class="content-to-populate-in-modal" id="modal-content-2">
+                        <h1>Hiking at Riverwood Park</h1>
+                        <p><img data-img-src="/assets/other_images/olive-mountain.png" class="lazy rounded_border hover_effect pull-left" alt="Lorem Ipsum">     
+                        <p><%= x.title %>
+                          <br>
+                          <%= x.start %>
+                          <br>
+                          <%= x.event_type %>
+                          <br> 
+                          <a href="#">Full History</a>
+                        </p>
+                      </div><!-- #modal-content-2 -->
+                    </div>
+                  </div><!-- .item -->
+                <% end %>
+              </div><!-- .carousel-inner -->
+          <!-- Controls -->
+              <a class="left carousel-control" href="#features-carousel" data-slide="prev"></a>
+              <a class="right carousel-control" href="#features-carousel" data-slide="next"></a>
+            </div><!-- #about-carousel -->
+        <% else  %>
+            <div id="features-carousel" class="carousel slide with-title-indicators max-height" data-height-percent="70" data-ride="carousel">
+              <div class="carousel-inner">
+                <% 3.times do |x| %>
+                  <div class="item active">
+                    <div class="carousel-text-content">
+                    </div>
+                  </div> 
+                <% end %>
+              </div>     
+            </div><!-- .item -->
+        <% end %>
+      </section> <!-- end: history -->
+    </div><!-- .content-wrapper -->
+  </article><!-- .section-wrapper -->
 
                             <!-- Profile Form -->
                             <article id="Profile" class="section-wrapper clearfix" data-custom-background-img="/assets/other_images/bg3.jpg">

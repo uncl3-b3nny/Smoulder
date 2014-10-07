@@ -10,6 +10,7 @@
     password = Faker::Internet.password(8)
     User.create([{email: Faker::Internet.email, password: password, password_confirmation: password, anniversary: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), spouse_birthday: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), first_kiss: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), first_date: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), day_you_proposed:(Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date)}])
   end
+
 fake_mailer_content = 
   20.times do
     MailerContent.create(
@@ -24,4 +25,27 @@ fake_mailer_content =
         {category: 'Physical Touch', subcategory: 'Ideas', actual_context: 'Holding hands is simple way to remind her you love her!'}])
   end
 
+events = Event.create(
+  [
+    {title: "Mother's Day", start: '2015-05-10', event_type: 'Holiday'}, {title: "Labor Day", start: '2015-09-07', event_type: 'Holiday'}, {title: "Independence Day", start: '2015-07-04', event_type: 'Holiday'}, {title: "New Year's Day", start: '2014-01-1', event_type: 'Holiday'}, {title: "Black Friday", start: '2014-11-28', event_type: 'Holiday'}, {title: "Thanksgiving", start: '2014-11-27', event_type: 'Holiday'}, {title: "Cyber Monday", start: '2014-12-01', event_type: 'Holiday'}, {title: "Christmas", start: '2014-12-25', event_type: 'Holiday'},{title: "Halloween", start: '2014-10-31', event_type: 'Holiday'}
+    ])
 #maybe just a write a script to scrape poetry foundation?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

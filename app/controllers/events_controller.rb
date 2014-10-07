@@ -31,25 +31,19 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     # <%= f.datetime_select :start, class: "date-field form-control validate-field date", data_validation_type: "date", placeholder: "dd/mm/yy" %>
-    @holiday = Event.next_event
-    @new_event = Event.create params[:title, :start]
-      respond_to do |format|
-      format.html { redirect_to events_path }
-      format.js { render json: @event.as_json }
-      end
 
     @event = Event.create event_params
       respond_to do |format|
-      format.html { redirect_to events_path }
-      format.js { render json: @event.as_json }
+        if @event.save
+          flash[:notice] = "Event was successfully saved"
+          format.html { redirect_to events_path }
+          format.js { render json: @event.as_json }
+        else
+          flash[:error] = "Event was not successfully saved"
+          format.html { redirect_to events_path }
+        end
       end
-      if @car.save
-        flash[:notice] = "Event was successfully saved"
-        format.html { redirect_to dealership_path(@dealership) }
-      else
-        flash[:error] = "Event was not successfully saved"
-        format.html { render :new }
-      end
+
     # redirect_to events_path
   end
 
@@ -85,6 +79,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :date, :allDay, :start, :end, :url, :className, :editable, :startEditable, :endEditable, :durationEditable, :color, :backgroundColor, :borderColor, :textColor, :event_type)
+      params.require(:event).permit(:title, :date, :allDay, :start, :end, :url, :className, :editable, :startEditable, :endEditable, :durationEditable, :color, :backgroundColor, :borderColor, :textColor, :event_type, :user_id, :workflow_state)
     end
 end

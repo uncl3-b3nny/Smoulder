@@ -46,7 +46,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'validates_timeliness'
-gem 'workflow'
 ruby "2.1.2"
 gem 'rails_12factor'
 gem 'devise'
