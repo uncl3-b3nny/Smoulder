@@ -20,7 +20,7 @@
                 <h5>Schedule a hike!</h5>
               </div><!-- .caption -->
                 <center>
-                  <%= link_to 'Do it', 'javascript:void(0);', suggestion_frame_partial: event_path(Event.next_event.first), event_title: Event.next_event.first.title, start: Event.next_event.first.start, event_type: Event.next_event.first.event_type, user_id: current_user.id, remote: :true, class: "update_event btn btn-primary btn-md" %>
+                  <%= link_to 'Do it', '', route_to: event_path(Event.next_event.first), event_title: Event.next_event.first.title, start: Event.next_event.first.start, event_type: Event.next_event.first.event_type, user_id: current_user.id, remote: :true, class: "update_event btn btn-primary btn-md" %>
                 </center>
             </a><!-- .thumbnail -->
 
@@ -63,7 +63,10 @@
                 <h5>Send a note!</h5>
               
                     
-              </div><!-- .caption --><center><%= link_to 'Do it', 'javascript:void(0);', suggestion_frame_partial: events_path, event_title: Event.next_event.first.title, start: Event.next_event.first.start, event_type: Event.next_event.first.event_type, user_id: current_user.id, remote: :true, class: "update_event btn btn-primary btn-md" %></center>
+              </div><!-- .caption -->
+              <center>
+                  <%= link_to 'Do it', 'javascript:void(0);', route_to: event_path(Event.next_event.first), event_title: Event.next_event.first.title, start: Event.next_event.first.start, event_type: Event.next_event.first.event_type, user_id: current_user.id, remote: :true, class: "update_event btn btn-primary btn-md" %>
+                </center>
             </a><!-- .thumbnail -->
 
             <div class="content-to-populate-in-modal" id="modal-content-7">
@@ -115,5 +118,5 @@
   </article><!-- .section-wrapper -->
 
   
-  <script type="text/javascript" src="/assets/initialise-functions.js"></script>
+  
 
