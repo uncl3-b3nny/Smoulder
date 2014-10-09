@@ -14,16 +14,18 @@
           <article class="feature-col col-md-4">
             <a href="" onclick="populate_and_open_modal(event, 'modal-content-6');" class="thumbnail linked">
               <div class="image-container">
-                <img data-img-src=<%= MailerContent.next_quality_time(current_user.id).first.suggestion_image_file_path %>>
+
+                <img data-img-src= <%= MailerContent.next_quality_time(current_user.id).first.suggestion_image_file_path %> class="lazy item-thumbnail" alt="Lorem Ipsum">
+
               </div>
               <div class="caption">
-                <h5><%= MailerContent.next_quality_time(current_user.id).first.title %></h5>
+                <h5><%= first_suggestion_object.title %></h5>
                 
               </div><!-- .caption -->
 
               <!-- First Suggestions Button -->
                 <center>
-                  <%= link_to 'Do it', '', route_to: event_path(Event.next_event.first), event_title: MailerContent.next_quality_time(current_user.id).first.title, event_type: MailerContent.next_quality_time(current_user.id).first.category, remote: :true, class: "update_event btn btn-primary btn-md" %>
+                  <%= link_to 'Do it', '', route_to: event_path(Event.next_event.first), event_title: MailerContent.next_quality_time(current_user.id).first.title, event_type: MailerContent.next_quality_time(current_user.id).first.category, iden: 'poop', remote: :true, class: "update_event btn btn-primary btn-md" %>
                 </center>
             </a><!-- .thumbnail -->
 
@@ -60,7 +62,9 @@
           <article class="feature-col col-md-4">
             <a href="" onclick="populate_and_open_modal(event, 'modal-content-7');" class="thumbnail linked">
               <div class="image-container">
-                <img data-img-src=<%= MailerContent.next_words_of_affirmation(current_user.id).first.suggestion_image_file_path %>>
+                
+                <img data-img-src= <%= MailerContent.next_words_of_affirmation(current_user.id).first.suggestion_image_file_path %> class="lazy item-thumbnail" alt="Lorem Ipsum">
+
               </div>
               <div class="caption">
                 <h5><%= MailerContent.next_words_of_affirmation(current_user.id).first.title %></h5>

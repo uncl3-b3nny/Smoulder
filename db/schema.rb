@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008190318) do
+ActiveRecord::Schema.define(version: 20141009143856) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20141008190318) do
     t.string   "title"
     t.string   "workflow_state"
     t.string   "user_id"
+    t.string   "suggestion_image_file_path"
   end
 
   create_table "users", force: true do |t|
