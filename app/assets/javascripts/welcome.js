@@ -14,7 +14,7 @@ $(document).ready(function() {
       url: $(this).attr("route_to"),
       type: 'PATCH',
       dataType: 'script',
-      data: {event: {title: $(this).attr('event_title'), start: $(this).attr('start'), event_type: $(this).attr('event_type'), user_id: $(this).attr('user_id'), workflow_state: "done"} },
+      data: {event: {notes: $(this).attr('event_notes'), event_type: $(this).attr('event_type'), workflow_state: "done"}, mailer_content: {workflow_state: "done"}},
       success: function(res) {
          load_images("lazy", true, true);
       } 

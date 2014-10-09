@@ -9,6 +9,7 @@ class EventsController < ApplicationController
     @users = User.all
     @user = User.new
     @event = Event.new
+    @contents = MailerContent.all
   end
 
   # GET /events/1
@@ -50,16 +51,17 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    
+    Event.next_event.first.update(event_params)
+    # redirect_to events_path
+
+    MailerContent.next_words_of_affirmation(current_user.id).first.update(mailer_content_params)
+    # redirect_to mailer_contents_path
+
     respond_to do |format|
-      if @event.update(event_params)
         format.js
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.js
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+        format.html 
+        format.json 
     end
   end
 
@@ -82,5 +84,9 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:title, :date, :allDay, :start, :end, :url, :className, :editable, :startEditable, :endEditable, :durationEditable, :color, :backgroundColor, :borderColor, :textColor, :event_type, :user_id, :workflow_state)
+    end
+
+    def mailer_content_params
+      params.require(:mailer_content).permit(:category, :subcategory, :actual_context, :user_id, :workflow_state, :title)
     end
 end

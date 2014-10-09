@@ -69,6 +69,6 @@ class MailerContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mailer_content_params
-      params.require(:mailer_content).permit(:category, :subcategory, :actual_context)
+      params.require(:mailer_content).permit(:category, :subcategory, :actual_context, :user_id, :workflow_state, :title)
     end
 end
