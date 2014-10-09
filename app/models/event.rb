@@ -2,6 +2,15 @@ class Event < ActiveRecord::Base
   # needs validation for attributes
 belongs_to :user
 
+has_attached_file :event_image,
+  :storage => :dropbox,
+  :dropbox_credentials => { app_key: ENV['APP_KEY'],
+    app_secret: ENV['APP_SECRET'],
+    access_token: ENV['ACCESS_TOKEN'],
+    access_token_secret: ENV['ACCESS_TOKEN_SECRET'],
+    user_id: ENV['USER_ID'],
+    access_type: 'app_folder'}
+
   # This proc is just like a def method_name... end. It can be called just like a class method, e.g. 
   # Event.next_event
   scope :next_event, Proc.new { |after = DateTime.now, limit = 1| where('start > ? AND workflow_state = "not_done"', after).order("start ASC").limit(limit) }
