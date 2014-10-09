@@ -62,9 +62,7 @@
           <article class="feature-col col-md-4">
             <a href="" onclick="populate_and_open_modal(event, 'modal-content-7');" class="thumbnail linked">
               <div class="image-container">
-                
                 <img data-img-src= <%= MailerContent.next_words_of_affirmation(current_user.id).first.suggestion_image_file_path %> class="lazy item-thumbnail" alt="Lorem Ipsum">
-
               </div>
               <div class="caption">
                 <h5><%= MailerContent.next_words_of_affirmation(current_user.id).first.title %></h5>
