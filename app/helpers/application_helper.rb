@@ -64,19 +64,19 @@ module ApplicationHelper
 # this^ needs a tie breaker
   
   def first_suggestion_object
-    if first_suggestion_category = "Words of affirmation"  
+    if first_suggestion_category == "Words of affirmation"  
       first_button_object = MailerContent.next_words_of_affirmation(current_user.id).first
 
-    elsif first_suggestion_category = "Quality Time"  
+    elsif first_suggestion_category == "Quality Time"  
       first_button_object = MailerContent.next_quality_time(current_user.id).first
 
-    elsif first_suggestion_category = "Acts of Service"  
+    elsif first_suggestion_category == "Acts of Service"  
       first_button_object = MailerContent.next_acts_of_service(current_user.id).first
 
-    elsif first_suggestion_category = "Physical Touch"  
+    elsif first_suggestion_category == "Physical Touch"  
       first_button_object = MailerContent.next_physical_touch(current_user.id).first 
 
-    elsif first_suggestion_category = "Tangible Gifts"  
+    elsif first_suggestion_category == "Tangible Gifts"  
       first_button_object = MailerContent.next_tangible_gifts(current_user.id).first
     end
     first_button_object
