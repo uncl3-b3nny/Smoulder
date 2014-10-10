@@ -53,19 +53,19 @@ class EventsController < ApplicationController
   def update
     
     Event.next_event.first.update(event_params)
-    # redirect_to events_path
 
- # how do i then get this update to choose the correct object to update?
-If params[:iden]
-
-    MailerContent.next_words_of_affirmation(current_user.id).first.update(mailer_content_params)
-    # redirect_to mailer_contents_path
+    if mailer_content_params[:category] == "Words of affirmation"
+      MailerContent.next_words_of_affirmation(current_user.id).first.update(mailer_content_params)
+    else
+      MailerContent.next_quality_time(current_user.id).first.update(mailer_content_params)
+    end
 
     respond_to do |format|
         format.js
         format.html 
         format.json 
     end
+
   end
 
   # DELETE /events/1

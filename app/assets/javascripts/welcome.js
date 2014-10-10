@@ -1,10 +1,9 @@
 $(document).ready(function() {
   // page is now ready, initialize the calendar...
-
   $('#calendar').fullCalendar({
       // put your options and callbacks here
-       events: '/events.json'
-  })
+      events: '/events.json'
+    })
   $(document).on("click", '.update_event',function(event) {
     event.preventDefault();
     $("#menu-item-Calendar a").click()
@@ -14,14 +13,13 @@ $(document).ready(function() {
       url: $(this).attr("route_to"),
       type: 'PATCH',
       dataType: 'script',
-      data: {event: {notes: $(this).attr('event_notes'), event_type: $(this).attr('event_type'), workflow_state: "done"}, mailer_content: {workflow_state: "done"}},
+      data: {event: {notes: $(this).attr('event_notes'), event_type: $(this).attr('event_type'), workflow_state: "done"}, mailer_content: {workflow_state: "done", category: $(this).attr('category')}},
       success: function(res) {
-         load_images("lazy", true, true);
-      } 
-    })
-    
+       load_images("lazy", true, true);
+     } 
+   })
   });
-  });
+});
 
 //   // live events
 //   $(document).on('click', '.bro', function() {

@@ -3,6 +3,7 @@
       <div class="col-sm-10 col-md-9 pull-right">
         <section class="feature-text">
           <h1 class="section-title ">Pick 1!</h1>
+
             <p> <%= Event.next_event.first.title %></p>
        
         </section>
@@ -19,13 +20,13 @@
 
               </div>
               <div class="caption">
-                <h5><%= first_suggestion_object.title %></h5>
+                <h5><%= MailerContent.next_quality_time(current_user.id).first.title %></h5>
                 
               </div><!-- .caption -->
 
               <!-- First Suggestions Button -->
                 <center>
-                  <%= link_to 'Do it', '', route_to: event_path(Event.next_event.first), event_title: MailerContent.next_quality_time(current_user.id).first.title, event_type: MailerContent.next_quality_time(current_user.id).first.category, iden: 'poop', remote: :true, class: "update_event btn btn-primary btn-md" %>
+                  <%= link_to 'Do it', '', route_to: event_path(Event.next_event.first), event_title: MailerContent.next_quality_time(current_user.id).first.title, event_type: MailerContent.next_quality_time(current_user.id).first.category, category: MailerContent.next_quality_time(current_user.id).first.category, remote: :true, class: "update_event btn btn-primary btn-md" %>
                 </center>
             </a><!-- .thumbnail -->
 
@@ -71,16 +72,16 @@
               </div><!-- .caption -->
               <!-- Second Suggestions Button -->
                 <center>
-                  <%= link_to 'Do it', '', route_to: event_path(Event.next_event.first), event_notes: MailerContent.next_words_of_affirmation(current_user.id).first.title, event_type: MailerContent.next_words_of_affirmation(current_user.id).first.category, remote: :true, class: "update_event btn btn-primary btn-md" %>
+                  <%= link_to 'Do it', '', route_to: event_path(Event.next_event.first), event_notes: MailerContent.next_words_of_affirmation(current_user.id).first.title, event_type: MailerContent.next_words_of_affirmation(current_user.id).first.category, category: MailerContent.next_words_of_affirmation(current_user.id).first.category, remote: :true, class: "update_event btn btn-primary btn-md" %>
                 </center>
             </a><!-- .thumbnail -->
 
             <div class="content-to-populate-in-modal" id="modal-content-7">
               <img data-img-src="/assets/other_images/top-image2.jpg" class="lazy full-width" alt="Lorem Ipsum">
               <h1>Send a Note!</h1>
-              <p>Use the font you saved to your profile to send words of affirmation in your own handwriting</p>
-              <p>Send an email</p>
-              <p>Send a poem</p>
+              <p>Use the font you saved to your profile to send words of affirmation in your own handwriting!</p>
+              <p>Send an email!</p>
+              <p>Send a snail mail!</p>
             </div><!-- #modal-content-7 -->
           </article>
 
@@ -109,7 +110,7 @@
                 <div class="item"><a href="/assets/other_images/bg6.jpg" data-lightbox="popup-alt-gallery"><img class="lazyOwl" data-src="/assets/other_images/gallery-thumb-6.jpg"></a></div>
                 <div class="item"><a href="/assets/other_images/bg2.jpg" data-lightbox="popup-alt-gallery"><img class="lazyOwl" data-src="/assets/other_images/gallery-thumb-2.jpg"></a></div>
                 <div class="item"><a href="/assets/other_images/bg3.jpg" data-lightbox="popup-alt-gallery"><img class="lazyOwl" data-src="/assets/other_images/gallery-thumb-3.jpg"></a></div>
-                include captions and make the pics link to moduls with more info. ALSO NEED a 1CLICK = Done button
+                <!-- include captions and make the pics link to moduls with more info. ALSO NEED a 1CLICK = Done button -->
               </div>
             </div><!-- #modal-content-8 -->
           </article>
