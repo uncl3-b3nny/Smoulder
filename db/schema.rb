@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20141009222019) do
   create_table "suggestion_contents", force: true do |t|
     t.string   "category"
     t.string   "subcategory"
-    t.text     "actual_context"
+    t.text     "actual_content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"

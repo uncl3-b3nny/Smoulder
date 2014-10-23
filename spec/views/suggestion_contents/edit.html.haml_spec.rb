@@ -5,7 +5,7 @@ RSpec.describe "suggestion_contents/edit", :type => :view do
     @suggestion_content = assign(:suggestion_content, SuggestionContent.create!(
       :category => "MyString",
       :subcategory => "MyString",
-      :actual_context => "MyText"
+      :actual_content => "MyText"
     ))
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "suggestion_contents/edit", :type => :view do
 
       assert_select "input#suggestion_content_subcategory[name=?]", "suggestion_content[subcategory]"
 
-      assert_select "textarea#suggestion_content_actual_context[name=?]", "suggestion_content[actual_context]"
+      assert_select "textarea#suggestion_content_actual_content[name=?]", "suggestion_content[actual_content]"
     end
   end
 end

@@ -6,12 +6,12 @@ RSpec.describe "suggestion_contents/index", :type => :view do
       SuggestionContent.create!(
         :category => "Category",
         :subcategory => "Subcategory",
-        :actual_context => "MyText"
+        :actual_content => "MyText"
       ),
       SuggestionContent.create!(
         :category => "Category",
         :subcategory => "Subcategory",
-        :actual_context => "MyText"
+        :actual_content => "MyText"
       )
     ])
   end

@@ -5,7 +5,7 @@ RSpec.describe "suggestion_contents/show", :type => :view do
     @suggestion_content = assign(:suggestion_content, SuggestionContent.create!(
       :category => "Category",
       :subcategory => "Subcategory",
-      :actual_context => "MyText"
+      :actual_content => "MyText"
     ))
   end
 

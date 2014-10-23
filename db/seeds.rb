@@ -16,14 +16,14 @@
     5.times do
       SuggestionContent.create(
         [
-          {category: 'Quality Time', subcategory: 'memories', actual_context: 'remember that really romantic evening we had...', user_id: z, workflow_state: "not_done" },
-          {category: 'Quality Time', subcategory: 'schedule', actual_context: 'this is a suggestion for a fun date!', user_id: z, workflow_state: "not_done" },
-          {category: 'Words of affirmation', subcategory: 'poetry', actual_context: 'This is where we would suggest some poetry!', user_id: z, workflow_state: "not_done" },
-          {category: 'Words of affirmation', subcategory: 'inspiration', actual_context: Faker::Company.bs, user_id: z, workflow_state: "not_done" },
-          {category: 'Tangible Gifts', subcategory: Faker::Commerce.department(1, true), actual_context: Faker::Commerce.product_name + ": $" + ((Faker::Commerce.price).to_s), user_id: z, workflow_state: "not_done" },
-          {category: 'Acts of Service', subcategory: 'Domestic', actual_context: 'Fix the ' + Faker::Hacker.noun, user_id: z, workflow_state: "not_done" },
-          {category: 'Physical Touch', subcategory: 'Reminder', actual_context: 'Give your wife a hug today!', user_id: z, workflow_state: "not_done" }, 
-          {category: 'Physical Touch', subcategory: 'Ideas', actual_context: 'Holding hands is simple way to remind her you love her!', user_id: z, workflow_state: "not_done" }])
+          {category: 'Quality Time', subcategory: 'memories', actual_content: 'remember that really romantic evening we had...', user_id: z, workflow_state: "not_done" },
+          {category: 'Quality Time', subcategory: 'schedule', actual_content: 'this is a suggestion for a fun date!', user_id: z, workflow_state: "not_done" },
+          {category: 'Words of affirmation', subcategory: 'poetry', actual_content: 'This is where we would suggest some poetry!', user_id: z, workflow_state: "not_done" },
+          {category: 'Words of affirmation', subcategory: 'inspiration', actual_content: Faker::Company.bs, user_id: z, workflow_state: "not_done" },
+          {category: 'Tangible Gifts', subcategory: Faker::Commerce.department(1, true), actual_content: Faker::Commerce.product_name + ": $" + ((Faker::Commerce.price).to_s), user_id: z, workflow_state: "not_done" },
+          {category: 'Acts of Service', subcategory: 'Domestic', actual_content: 'Fix the ' + Faker::Hacker.noun, user_id: z, workflow_state: "not_done" },
+          {category: 'Physical Touch', subcategory: 'Reminder', actual_content: 'Give your wife a hug today!', user_id: z, workflow_state: "not_done" }, 
+          {category: 'Physical Touch', subcategory: 'Ideas', actual_content: 'Holding hands is simple way to remind her you love her!', user_id: z, workflow_state: "not_done" }])
     end
   z += 1
 end

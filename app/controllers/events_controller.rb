@@ -90,6 +90,6 @@ class EventsController < ApplicationController
     end
 
     def suggestion_content_params
-      params.require(:suggestion_content).permit(:category, :subcategory, :actual_context, :user_id, :workflow_state, :title)
+      params.require(:suggestion_content).permit(:category, :subcategory, :actual_content, :user_id, :workflow_state, :title)
     end
 end

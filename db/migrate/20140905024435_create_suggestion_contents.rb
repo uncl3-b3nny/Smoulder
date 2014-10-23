@@ -3,7 +3,7 @@ class CreateSuggestionContents < ActiveRecord::Migration
     create_table :suggestion_contents do |t|
       t.string :category
       t.string :subcategory
-      t.text :actual_context
+      t.text :actual_content
 
       t.timestamps
     end

@@ -13,7 +13,7 @@
     %tr
       %td= suggestion_content.category
       %td= suggestion_content.subcategory
-      %td= suggestion_content.actual_context
+      %td= suggestion_content.actual_content
       %td= link_to 'Show', suggestion_content
       %td= link_to 'Edit', edit_suggestion_content_path(suggestion_content)
       %td= link_to 'Destroy', suggestion_content, :method => :delete, :data => { :confirm => 'Are you sure?' }
