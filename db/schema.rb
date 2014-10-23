@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20141009222019) do
     t.string   "workflow_state"
   end
 
-  create_table "mailer_contents", force: true do |t|
+  create_table "suggestion_contents", force: true do |t|
     t.string   "category"
     t.string   "subcategory"
     t.text     "actual_context"

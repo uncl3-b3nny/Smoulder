@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :events
 
-  resources :mailer_contents
+  resources :suggestion_contents
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

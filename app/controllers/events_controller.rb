@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     @users = User.all
     @user = User.new
     @event = Event.new
-    @contents = MailerContent.all
+    @contents = SuggestionContent.all
   end
 
   # GET /events/1
@@ -54,10 +54,10 @@ class EventsController < ApplicationController
     
     Event.next_event.first.update(event_params)
 
-    if mailer_content_params[:category] == "Words of affirmation"
-      MailerContent.next_words_of_affirmation(current_user.id).first.update(mailer_content_params)
+    if suggestion_content_params[:category] == "Words of affirmation"
+      SuggestionContent.next_words_of_affirmation(current_user.id).first.update(suggestion_content_params)
     else
-      MailerContent.next_quality_time(current_user.id).first.update(mailer_content_params)
+      SuggestionContent.next_quality_time(current_user.id).first.update(suggestion_content_params)
     end
 
     respond_to do |format|
@@ -89,7 +89,7 @@ class EventsController < ApplicationController
       params.require(:event).permit(:title, :date, :allDay, :start, :end, :url, :className, :editable, :startEditable, :endEditable, :durationEditable, :color, :backgroundColor, :borderColor, :textColor, :event_type, :user_id, :workflow_state)
     end
 
-    def mailer_content_params
-      params.require(:mailer_content).permit(:category, :subcategory, :actual_context, :user_id, :workflow_state, :title)
+    def suggestion_content_params
+      params.require(:suggestion_content).permit(:category, :subcategory, :actual_context, :user_id, :workflow_state, :title)
     end
 end
