@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009222019) do
+ActiveRecord::Schema.define(version: 20140922152154) do
 
   create_table "events", force: true do |t|
+    t.string   "user_id"
     t.string   "title"
+    t.string   "workflow_state"
+    t.string   "event_type"
+    t.string   "history_image_file_path"
+    t.text     "notes"
     t.boolean  "allDay"
     t.string   "start"
     t.string   "end"
@@ -30,25 +35,25 @@ ActiveRecord::Schema.define(version: 20141009222019) do
     t.string   "textColor"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "event_type"
-    t.string   "date"
-    t.integer  "user_id"
-    t.text     "notes"
-    t.string   "history_image_file_path"
-    t.string   "workflow_state"
   end
 
   create_table "suggestion_contents", force: true do |t|
-    t.string   "category"
-    t.string   "subcategory"
-    t.text     "actual_content"
+    t.integer  "user_id"
+    t.string   "primary_category"
+    t.string   "primary_subcategory"
+    t.string   "secondary_category"
+    t.string   "name"
+    t.string   "content_title"
+    t.text     "content"
+    t.string   "options"
+    t.string   "address"
+    t.string   "time_frame"
+    t.string   "budget_size"
+    t.string   "workflow_state"
+    t.string   "suggestion_image_file_path"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title"
-    t.string   "workflow_state"
-    t.string   "user_id"
-    t.string   "suggestion_image_file_path"
-    t.string   "unique_identifier"
   end
 
   create_table "users", force: true do |t|
@@ -62,6 +67,7 @@ ActiveRecord::Schema.define(version: 20141009222019) do
     t.date     "first_kiss"
     t.date     "first_date"
     t.date     "day_you_proposed"
+    t.string   "spouse_amazon_id"
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -69,7 +75,6 @@ ActiveRecord::Schema.define(version: 20141009222019) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "spouse_amazon_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

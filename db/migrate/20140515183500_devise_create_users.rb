@@ -16,6 +16,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.date :first_kiss
       t.date :first_date
       t.date :day_you_proposed
+      t.string :spouse_amazon_id
       ## Trackable
       t.integer  :sign_in_count, default: 0, null: false
       t.datetime :current_sign_in_at
