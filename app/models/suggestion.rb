@@ -7,8 +7,8 @@ class Suggestion < ActiveRecord::Base
 # all of this logic needs to use the join table objects, and consequently the join table objects will need to store any data that is updated by the user, so that the suggestions can be 100% re-usable. 
 #To Do: assign default events via join table
 
-  def next_category 
-    @suggestions = Suggestion.all
+  def find_next_category 
+    @user_suggestions = User_Suggestion.all
     
     @quality_time_array = []
     @words_of_affirmation_array = []
@@ -16,7 +16,7 @@ class Suggestion < ActiveRecord::Base
     @acts_of_service_array = []
     @tangible_gifts_array = []
 
-    @suggestions.each do |x|
+    @user_suggestions.each do |x|
       if x.primary_category == "Quality Time" && x.workflow_state == "done"
         @quality_time_array.unshift(x)
       elsif x.primary_category == "Words of affirmation" && x.workflow_state == "done"
@@ -56,7 +56,7 @@ class Suggestion < ActiveRecord::Base
     @next_category
   end
 
-  def next_category_array
+  def build_next_category_array
     @suggestions = Suggestion.all
     @next_category_array = []
     @suggestions.each do |x|
@@ -67,22 +67,23 @@ class Suggestion < ActiveRecord::Base
     @next_category_array
   end
 
-def next_suggestion(x)
+def display_next_suggestion(x)
   # display suggestion and change the workflow state to done
-  @next_category.title
+  @next_category_array.first
 end
+# will a SQL query accept an instance variable?
+# scope :next_suggestion, Proc.new { |user_id, limit = 1| where('primary_category = @next_category AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
 
-scope :next_suggestion, Proc.new { |user_id, limit = 1| where('category = @next_category AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
+# So I actually need to run these on the join table objects to determine the next suggestions because they require workflow state which is a dynamic attribute that belongs to a "user specific suggestion". 
+  scope :next_quality_time, Proc.new { |user_id, limit = 1| where('primary_category = "Quality Time" AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
 
-  scope :next_quality_time, Proc.new { |user_id, limit = 1| where('category = "Quality Time" AND subcategory = "schedule" AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
+  scope :next_words_of_affirmation, Proc.new { |user_id, limit = 1| where('primary_category = "Words of affirmation" AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
 
-  scope :next_words_of_affirmation, Proc.new { |user_id, limit = 1| where('category = "Words of affirmation" AND subcategory = "poetry" AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
+  scope :next_acts_of_service, Proc.new { |user_id, limit = 1| where('primary_category = "Acts of Service" AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
 
-  scope :next_acts_of_service, Proc.new { |user_id, limit = 1| where('category = "Acts of Service" AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
+  scope :next_physical_touch, Proc.new { |user_id, limit = 1| where('primary_category = "Physical Touch" AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
 
-  scope :next_physical_touch, Proc.new { |user_id, limit = 1| where('category = "Physical Touch" AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
-
-  scope :next_tangible_gift, Proc.new { |user_id, limit = 1| where('category = "Tangible Gifts" AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
+  scope :next_tangible_gift, Proc.new { |user_id, limit = 1| where('primary_category = "Tangible Gifts" AND workflow_state = "not_done" AND user_id = ?', user_id).order("id ASC").limit(limit) }
 
 end
 
