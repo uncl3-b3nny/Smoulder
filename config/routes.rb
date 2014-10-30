@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-
+# do i need to nest routes for user_suggestions?
   resources :events
 
-  resources :suggestion_contents
+  resources :suggestion
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

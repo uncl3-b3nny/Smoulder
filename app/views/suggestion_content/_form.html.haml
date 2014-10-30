@@ -1,9 +1,9 @@
-= form_for @suggestion_content do |f|
-  - if @suggestion_content.errors.any?
+= form_for @suggestion do |f|
+  - if @suggestion.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@suggestion_content.errors.count, "error")} prohibited this suggestion_content from being saved:"
+      %h2= "#{pluralize(@suggestion.errors.count, "error")} prohibited this suggestion from being saved:"
       %ul
-        - @suggestion_content.errors.full_messages.each do |msg|
+        - @suggestion.errors.full_messages.each do |msg|
           %li= msg
 
   .field

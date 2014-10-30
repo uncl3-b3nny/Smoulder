@@ -1,14 +1,14 @@
 require 'rails_helper'
-
-RSpec.describe "suggestion_contents/index", :type => :view do
+# To Do: correct rspec files for refactored models & databases
+RSpec.describe "suggestions/index", :type => :view do
   before(:each) do
-    assign(:suggestion_contents, [
-      SuggestionContent.create!(
+    assign(:suggestions, [
+      Suggestion.create!(
         :category => "Category",
         :subcategory => "Subcategory",
         :actual_content => "MyText"
       ),
-      SuggestionContent.create!(
+      Suggestion.create!(
         :category => "Category",
         :subcategory => "Subcategory",
         :actual_content => "MyText"
@@ -16,7 +16,7 @@ RSpec.describe "suggestion_contents/index", :type => :view do
     ])
   end
 
-  it "renders a list of suggestion_contents" do
+  it "renders a list of suggestions" do
     render
     assert_select "tr>td", :text => "Category".to_s, :count => 2
     assert_select "tr>td", :text => "Subcategory".to_s, :count => 2

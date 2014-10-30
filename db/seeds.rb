@@ -12,9 +12,9 @@
   User.create([{email: Faker::Internet.email, password: password, password_confirmation: password, anniversary: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), spouse_birthday: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), first_kiss: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), first_date: (Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date), day_you_proposed:(Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f)).to_date)}])
   
 
-  fake_suggestion_content = 
+  fake_suggestion = 
     5.times do
-      SuggestionContent.create(
+      Suggestion.create(
         [
           {category: 'Quality Time', subcategory: 'memories', actual_content: 'remember that really romantic evening we had...', user_id: z, workflow_state: "not_done" },
           {category: 'Quality Time', subcategory: 'schedule', actual_content: 'this is a suggestion for a fun date!', user_id: z, workflow_state: "not_done" },

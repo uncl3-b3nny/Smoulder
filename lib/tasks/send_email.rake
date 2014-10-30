@@ -4,7 +4,7 @@
 #   # if Time.now.wday == 1
 #     p '***'
 #     @users = User.all
-#     @suggestion_contents = SuggestionContent.all.limit(5)
-#     WeeklySuggestions.build_an_email(@users, @suggestion_contents).deliver
+#     @suggestions = Suggestion.all.limit(5)
+#     WeeklySuggestions.build_an_email(@users, @suggestions).deliver
 #   # end
 # end

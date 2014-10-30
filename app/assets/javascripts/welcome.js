@@ -13,7 +13,7 @@ $(document).ready(function() {
       url: $(this).attr("route_to"),
       type: 'PATCH',
       dataType: 'script',
-      data: {event: {notes: $(this).attr('event_notes'), event_type: $(this).attr('event_type'), workflow_state: "done"}, suggestion_content: {workflow_state: "done", category: $(this).attr('category')}},
+      data: {event: {notes: $(this).attr('event_notes'), event_type: $(this).attr('event_type'), workflow_state: "done"}, suggestion: {workflow_state: "done", category: $(this).attr('category')}},
       success: function(res) {
        load_images("lazy", true, true);
      } 

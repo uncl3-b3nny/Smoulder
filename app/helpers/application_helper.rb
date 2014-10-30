@@ -18,7 +18,7 @@ module ApplicationHelper
       link_to "Log In", new_user_session_path
     end
   end
-
+#replace all this junk with logic from suggestion model
   def love_bank_score
     gifts = 0
     words = 0
@@ -28,7 +28,7 @@ module ApplicationHelper
     # add a frequency adapter, and a recent_frequency adapter
     # ADD HUMOR!
      
-    SuggestionContent.each do |x|
+    Suggestion.each do |x|
       if x.category == "Tangible Gifts" && x.workflow_state == "done"
         quality_time += 1
       elsif x.category == "Words of affirmation" && x.workflow_state == "done"
@@ -65,19 +65,19 @@ module ApplicationHelper
   
   def first_suggestion_object
     if first_suggestion_category == "Words of affirmation"  
-      first_button_object = SuggestionContent.next_words_of_affirmation(current_user.id).first
+      first_button_object = Suggestion.next_words_of_affirmation(current_user.id).first
 
     elsif first_suggestion_category == "Quality Time"  
-      first_button_object = SuggestionContent.next_quality_time(current_user.id).first
+      first_button_object = Suggestion.next_quality_time(current_user.id).first
 
     elsif first_suggestion_category == "Acts of Service"  
-      first_button_object = SuggestionContent.next_acts_of_service(current_user.id).first
+      first_button_object = Suggestion.next_acts_of_service(current_user.id).first
 
     elsif first_suggestion_category == "Physical Touch"  
-      first_button_object = SuggestionContent.next_physical_touch(current_user.id).first 
+      first_button_object = Suggestion.next_physical_touch(current_user.id).first 
 
     elsif first_suggestion_category == "Tangible Gifts"  
-      first_button_object = SuggestionContent.next_tangible_gifts(current_user.id).first
+      first_button_object = Suggestion.next_tangible_gifts(current_user.id).first
     end
     first_button_object
   end

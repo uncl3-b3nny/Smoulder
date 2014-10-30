@@ -1,6 +1,6 @@
-class CreateSuggestionContents < ActiveRecord::Migration
+class CreateSuggestion < ActiveRecord::Migration
   def change
-    create_table :suggestion_contents do |t|
+    create_table :suggestions do |t|
       t.integer :user_id
       t.string  :primary_category
       t.string  :primary_subcategory
@@ -12,7 +12,6 @@ class CreateSuggestionContents < ActiveRecord::Migration
       t.string  :address
       t.string  :time_frame
       t.string  :budget_size
-      t.string  :workflow_state
       t.string  :suggestion_image_file_path
       t.string  :url
 

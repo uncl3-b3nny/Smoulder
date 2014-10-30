@@ -2,14 +2,14 @@
 
 %p
   %b Category:
-  = @suggestion_content.category
+  = @suggestion.category
 %p
   %b Subcategory:
-  = @suggestion_content.subcategory
+  = @suggestion.subcategory
 %p
   %b Actual context:
-  = @suggestion_content.actual_content
+  = @suggestion.actual_content
 
-= link_to 'Edit', edit_suggestion_content_path(@suggestion_content)
+= link_to 'Edit', edit_suggestion_path(@suggestion)
 \|
-= link_to 'Back', suggestion_contents_path
+= link_to 'Back', suggestions_path

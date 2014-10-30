@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe SuggestionContent, :type => :model do
+RSpec.describe UserSuggestion, :type => :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     @users = User.all
     @user = User.new
     @event = Event.new
-    @contents = SuggestionContent.all
+    @contents = Suggestion.all
   end
 
   # GET /events/1
@@ -54,10 +54,10 @@ class EventsController < ApplicationController
     
     Event.next_event.first.update(event_params)
 
-    if suggestion_content_params[:category] == "Words of affirmation"
-      SuggestionContent.next_words_of_affirmation(current_user.id).first.update(suggestion_content_params)
+    if suggestion_params[:category] == "Words of affirmation"
+      Suggestion.next_words_of_affirmation(current_user.id).first.update(suggestion_params)
     else
-      SuggestionContent.next_quality_time(current_user.id).first.update(suggestion_content_params)
+      Suggestion.next_quality_time(current_user.id).first.update(suggestion_params)
     end
 
     respond_to do |format|
@@ -86,10 +86,48 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :date, :allDay, :start, :end, :url, :className, :editable, :startEditable, :endEditable, :durationEditable, :color, :backgroundColor, :borderColor, :textColor, :event_type, :user_id, :workflow_state)
+      params.require(:event).permit(:title, 
+       :date, 
+       :allDay, 
+       :start, 
+       :end, 
+       :url, 
+       :className, 
+       :editable, 
+       :startEditable, 
+       :endEditable, 
+       :durationEditable, 
+       :color, 
+       :backgroundColor, 
+       :borderColor, 
+       :textColor, 
+       :event_type, 
+       :user_id, 
+       :workflow_state, 
+       :notes)
     end
+    #To do: whitelist suggestions and events for users via join tables
+      # def user_params
+      #   event_ids:[]
+      #   suggestion_ids: []
+      # end
 
-    def suggestion_content_params
-      params.require(:suggestion_content).permit(:category, :subcategory, :actual_content, :user_id, :workflow_state, :title)
+    def suggestion_params
+      params.require(:suggestion).permit(
+        :primary_category, 
+        :primary_subcategory, 
+        :secondary_category, 
+        :user_id, 
+        :name, 
+        :workflow_state, 
+        :content_title, 
+        :content, 
+        :options, 
+        :address, 
+        :time_frame, 
+        :budget_size, 
+        :suggestion_image_file_path, 
+        :url
+        )
     end
 end

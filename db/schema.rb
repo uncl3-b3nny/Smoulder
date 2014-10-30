@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922152154) do
+ActiveRecord::Schema.define(version: 20141030071508) do
 
   create_table "events", force: true do |t|
     t.string   "user_id"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20140922152154) do
     t.string   "history_image_file_path"
     t.text     "notes"
     t.boolean  "allDay"
-    t.string   "start"
-    t.string   "end"
+    t.datetime "start"
+    t.datetime "end"
     t.string   "url"
     t.string   "className"
     t.boolean  "editable"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140922152154) do
     t.datetime "updated_at"
   end
 
-  create_table "suggestion_contents", force: true do |t|
+  create_table "suggestions", force: true do |t|
     t.integer  "user_id"
     t.string   "primary_category"
     t.string   "primary_subcategory"
@@ -49,11 +49,19 @@ ActiveRecord::Schema.define(version: 20140922152154) do
     t.string   "address"
     t.string   "time_frame"
     t.string   "budget_size"
-    t.string   "workflow_state"
     t.string   "suggestion_image_file_path"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_suggestions", force: true do |t|
+    t.string   "user_id"
+    t.string   "suggestion_id"
+    t.string   "workflow_state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "primary_category"
   end
 
   create_table "users", force: true do |t|

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "suggestion_contents/show", :type => :view do
+RSpec.describe "suggestions/show", :type => :view do
   before(:each) do
-    @suggestion_content = assign(:suggestion_content, SuggestionContent.create!(
+    @suggestion = assign(:suggestion, Suggestion.create!(
       :category => "Category",
       :subcategory => "Subcategory",
       :actual_content => "MyText"

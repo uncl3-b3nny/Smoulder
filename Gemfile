@@ -63,3 +63,4 @@ gem 'jquery-ui-rails'
 gem "nested_form"
 gem "paperclip-dropbox", ">= 1.1.7"
 gem 'figaro'
+gem 'twilio-ruby', '~> 3.12'
