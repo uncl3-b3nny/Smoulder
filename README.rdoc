@@ -4,4 +4,4 @@ This application is designed to help you do nice things for people you care abou
 
 It is far from a finished product. I have only had time to build and style the basic functionality for this app. The code needs a great deal of clean-up, and I look forward to polishing it till it shines!
 
-If you'd like to try it out user randy@stamm.com as your log in and password14 as the password!
+If you'd like to try it out, use randy@stamm.com as your log in and password14 as the password!
